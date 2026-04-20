@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Nếu bạn muốn định nghĩa các màu custom như 'neutral-primary-soft' */
+/* Bạn viết trực tiếp bằng biến CSS (CSS Variables) ở đây: */
+@theme {
+  --color-neutral-primary-soft: #f3f4f6;
+  --color-heading: #111827;
+  --color-body: #4b5563;
+  --color-default: #e5e7eb;
+}

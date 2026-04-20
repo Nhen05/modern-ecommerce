@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "nhen.developer@gmail.com",
+      "password": "123456",
+      "name": "Nhen Developer",
+      "role": "user",
+      "createdAt": "2026-04-14T09:00:00Z"
+    }
+  ]
+}
