@@ -28,31 +28,31 @@ const savedEmail = localStorage.getItem('email')
 console.log('Email from header page get from localtorage is:', savedEmail)
 const products: Category[] = [
     {
-        name: 'All Products',
+        name: 'Tất cả sản phẩm',
         description: 'Xem tất cả sản phẩm có sẵn trong cửa hàng',
         href: '/products',
         icon: ShoppingBag,
     },
     {
-        name: 'Electronics',
+        name: 'Đồ điện tử',
         description: 'Điện thoại, laptop, tai nghe, phụ kiện công nghệ',
         href: '/products?category=electronics',
         icon: Laptop,
     },
     {
-        name: 'Jewelery',
+        name: 'Trang sức',
         description: 'Trang sức, dây chuyền, nhẫn, lắc tay cao cấp',
         href: '/products?category=jewelery',
         icon: Gem,
     },
     {
-        name: "Men's Clothing",
+        name: "Quần áo nam",
         description: 'Quần áo, áo sơ mi, quần jeans, áo khoác nam',
         href: "/products?category=men's clothing",
         icon: Shirt,
     },
     {
-        name: "Women's Clothing",
+        name: "Quần áo nữ",
         description: 'Đầm, váy, áo blouse, quần legging nữ',
         href: "/products?category=women's clothing",
         icon: Users,
@@ -92,7 +92,7 @@ export default function ExampleHeader() {
                 <PopoverGroup className="hidden lg:flex lg:gap-x-12">
                     <Popover className="relative">
                         <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 focus:outline-none">
-                            Product
+                            Sản phẩm
                             <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
                         </PopoverButton>
 
