@@ -1,5 +1,5 @@
 import { useCartStore } from "./useCartStore"
-export const userCart = ()=>{
+export const cartSelector = ()=>{
     const cart = useCartStore((s)=> s.cart)
     const increaseQty = useCartStore((s)=>s.increaseQty)
     const totalQty = useCartStore((s)=>s.totalQty)
