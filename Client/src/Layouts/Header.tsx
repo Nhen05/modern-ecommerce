@@ -25,7 +25,6 @@ import {
 } from 'lucide-react';
 import type { Category } from '../Type/Product';
 const savedEmail = localStorage.getItem('email')
-console.log('Email from header page get from localtorage is:', savedEmail)
 const products: Category[] = [
     {
         name: 'Tất cả sản phẩm',
@@ -134,10 +133,10 @@ export default function ExampleHeader() {
                             <ShoppingBasket />
                         </Link>
                         {savedEmail ? (
-                            <Link to="/Profile" className="font-semibold">Hồ Sơ</Link>
+                            <Link to="/UserProfile" className="font-semibold">Hồ Sơ</Link>
                         ) : (
                             <Link to="/Login">
-                                Đăng Nhâpj
+                                Đăng Nhâp
                             </Link>
                         )}
                     </div>

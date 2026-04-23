@@ -1,3 +1,8 @@
+export type statusType = "Success" | "Error"
+export type CartAlert = {
+    message: string;
+    status: statusType;
+} | null
 export type CartItem = {
     id: number | string;
     title: string;
@@ -15,4 +20,7 @@ export type CartStore = {
     clearCart: () => void;
     totalQty: () => number;
     getAllCart: () => CartItem[];
+    alert: CartAlert;
+    setAlert: (alert: CartAlert) => void;
+    clearAlert: () => void; 
 }

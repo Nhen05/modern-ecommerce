@@ -152,11 +152,11 @@ const Home = () => {
                                             </h3>
                                             <div className="flex items-center justify-between mt-4">
                                                 <span className="text-lg font-bold text-gray-900">${product.price}</span>
+                                                <a href={`ProductDetail/${product.id}`}>  
                                                 <button className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg transition-colors">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                                                    </svg>
+                                                    Mua Ngay
                                                 </button>
+                                                </a>
                                             </div>
                                         </div>
                                         </a>

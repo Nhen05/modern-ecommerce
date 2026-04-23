@@ -2,9 +2,10 @@ import { createBrowserRouter } from "react-router";
 import MainLayout from "../Layouts/MainLayout";
 import {
     Home, ProductPage, ProductDetail, Contact, About, Cart,
-    Checkout, OrderDetail, OrderHistory
+    Checkout,
 } from "../Features/Product/Pages";
-import{Register , Login} from "../Features/Auth/Pages"
+import { Register, Login } from "../Features/Auth/Pages"
+import { UserProfilePage, UserOrderPage, UserOrderDetailPage } from "../Features/User/Pages"
 const router = createBrowserRouter([
     {
         path: '/',
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
                     { index: true, element: <Home /> },
                     { path: 'Home', element: <Home /> },
                 ]
-            },  {
+            }, {
                 path: 'Products',
                 element: <ProductPage />
 
@@ -56,12 +57,16 @@ const router = createBrowserRouter([
                 element: <Login />
             },
             {
-                path: 'OrderDetail',
-                element: <OrderDetail />
+                path: 'UserOrderDetail',
+                element: <UserOrderDetailPage />
             },
             {
-                path: 'OrderHistory',
-                element: <OrderHistory />
+                path: 'UserOrder',
+                element: <UserOrderPage />
+            },
+            {
+                path:'UserProfile',
+                element:<UserProfilePage/>
             }
         ]
     }

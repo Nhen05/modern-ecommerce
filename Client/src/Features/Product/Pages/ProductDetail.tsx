@@ -1,20 +1,23 @@
 import useProductDetail from "../Hook/useProductDetail";
-import { useParams , useLocation } from "react-router";
+import { useParams, useLocation } from "react-router";
+import useCart from '../../Cart/Hook/useCart'
+import { CartAlert } from '../../Cart/Components/CartAlert'
 const ProductDetail = () => {
     const params = useParams()
     const productId = params.id
     const location = useLocation()
-    const pathName =  location.pathname.split("/").filter(x=>x)
-    console.log('Location is:',pathName)
+    const pathName = location.pathname.split("/").filter(x => x)
+    console.log('Location is:', pathName)
     const {
         product,
         loading,
-        error 
+        error
     } = useProductDetail(productId ? Number(productId) : 0);
+    const { handleAddCart, alert, clearAlert } = useCart()
     return (
         <div className="container">
-              {loading && <p className="text-center py-10">Đang tải sản phẩm...</p>}
-                {error && <p className="text-center text-red-500 py-10">{error}</p>}
+            {loading && <p className="text-center py-10">Đang tải sản phẩm...</p>}
+            {error && <p className="text-center text-red-500 py-10">{error}</p>}
             <div className="bg-white min-h-screen">
                 <div className="pt-6 pb-16">
                     <nav aria-label="Breadcrumb" className="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -43,7 +46,7 @@ const ProductDetail = () => {
 
                             <div className="mt-10 lg:mt-0">
                                 <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-                                   {product?.title}
+                                    {product?.title}
                                 </h1>
 
                                 <p className="mt-4 text-4xl font-semibold text-gray-900">
@@ -61,16 +64,34 @@ const ProductDetail = () => {
                                 <div className="mt-8">
                                     <h3 className="text-sm uppercase tracking-widest font-medium text-gray-500 mb-2">Description</h3>
                                     <p className="text-base text-gray-600 leading-relaxed">
-                                       {product?.description}
+                                        {product?.description}
                                     </p>
                                 </div>
                                 <div className="mt-10">
                                     <button
+                                        onClick={() => {
+                                            if (!product) return;
+                                            handleAddCart({
+                                                id: product.id,
+                                                title: product.title,
+                                                img: product.image,
+                                                price: product.price
+                                            })
+                                        }}
                                         type="button"
                                         className="w-full bg-indigo-600 hover:bg-indigo-700 transition-colors text-white font-semibold py-4 px-8 rounded-2xl text-lg flex items-center justify-center gap-3"
                                     >
-                                        <span>Add to bag</span>
+                                        <span className="cursor-pointer">Thêm vào giỏ hàng</span>
                                     </button>
+                                    {
+                                        alert && (
+                                            <CartAlert
+                                                message={alert.message}
+                                                status={alert.status}
+                                                onClose={clearAlert}
+                                            />
+                                        )
+                                    }
                                 </div>
                                 <div className="mt-12 pt-8 border-t border-gray-200">
                                     <h3 className="text-sm font-medium text-gray-900 mb-4">Highlights</h3>
@@ -94,7 +115,7 @@ const ProductDetail = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 export default ProductDetail;

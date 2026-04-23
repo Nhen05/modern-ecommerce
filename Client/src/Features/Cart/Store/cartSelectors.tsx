@@ -8,6 +8,8 @@ export const cartSelector = ()=>{
     const remove = useCartStore((s)=> s.removeFromCart)
     const clearCart =  useCartStore((s)=>s.clearCart)
     const getAllCart = useCartStore((s)=> s.getAllCart)
+    const alert = useCartStore((s)=>s.alert);
+    const clearAlert = useCartStore((s)=>s.clearAlert)
     return{
         cart,
         increaseQty,
@@ -16,6 +18,8 @@ export const cartSelector = ()=>{
         addToCart,
         remove,
         clearCart,
-        getAllCart
+        getAllCart,
+        alert,
+        clearAlert
     }
 }

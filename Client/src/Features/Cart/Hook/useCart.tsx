@@ -1,11 +1,14 @@
 import { cartSelector } from "../Store/cartSelectors";
+import type { CartItem } from "../Types";
 const useCart = () => {
-    const { addToCart } = cartSelector();
-    const handleAddCart = (data: any) => {
+    const { addToCart, alert ,clearAlert } = cartSelector();
+    const handleAddCart = (data: Omit<CartItem,"quantity">) => {
         addToCart(data)
     }
     return {
-        handleAddCart
+        handleAddCart,
+        alert,
+        clearAlert
     }
 }
 export default useCart
